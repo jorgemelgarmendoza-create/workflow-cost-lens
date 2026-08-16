@@ -1,0 +1,13 @@
+{
+  "name": "workflow-cost-lens",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A dependency-free GitHub Action that spots static CI cost and reliability signals.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

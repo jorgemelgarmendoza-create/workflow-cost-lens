@@ -1,0 +1,33 @@
+name: "Workflow Cost Lens"
+description: "Find static signals of avoidable GitHub Actions spend and reliability waste."
+author: "Workflow Cost Lens"
+branding:
+  icon: "activity"
+  color: "purple"
+inputs:
+  workflows-directory:
+    description: "Directory containing workflow YAML files."
+    required: false
+    default: ".github/workflows"
+  fail-on:
+    description: "Fail the check at this severity: none, low, medium, high, or critical."
+    required: false
+    default: "high"
+  max-matrix-size:
+    description: "Warn when a matrix can produce more than this many combinations."
+    required: false
+    default: "8"
+  pin-actions:
+    description: "Report third-party actions that are not pinned to a full commit SHA."
+    required: false
+    default: "true"
+outputs:
+  score:
+    description: "A 0-100 workflow efficiency score; it is a heuristic, not a billing estimate."
+  findings:
+    description: "Number of findings."
+  has-failures:
+    description: "Whether findings met the configured failure threshold."
+runs:
+  using: "node20"
+  main: "src/index.js"
